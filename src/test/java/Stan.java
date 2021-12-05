@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class Stan {
 
     @Test
-    void loginLinkTest(){
+    void loginLinkTest(){  // Test case #TC-HD-001
         WebDriver driver;
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -23,7 +23,7 @@ public class Stan {
     }
 
     @Test
-    void loginWithCorrectCredsTest() {
+    void loginWithCorrectCredsTest() {  // Test case #TC-HD-002
         WebDriver driver;
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -38,7 +38,7 @@ public class Stan {
     }
 
     @Test
-    void loginWithIncorrectCredsTest() {
+    void loginWithIncorrectCredsTest() {  // Test case #TC-HD-003
         WebDriver driver;
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -53,7 +53,7 @@ public class Stan {
     }
 
       @Test
-    void loginWithEmptyUsernameTest() {
+    void loginWithEmptyUsernameTest() {  // Test case #TC-HD-004
         WebDriver driver;
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
