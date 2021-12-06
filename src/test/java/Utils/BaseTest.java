@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
+
     public WebDriver driver;
 
     @BeforeMethod
