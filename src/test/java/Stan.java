@@ -1,3 +1,4 @@
+import Utils.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,16 +8,10 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Stan {
+public class Stan extends BaseTest {
 
     @Test
-    void loginLinkTest(){  // Test case #TC-HD-001
-        WebDriver driver;
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://rifle.com/");
+    void loginLinkTest() {  // Test case #TC-HD-001
         driver.findElement(By.xpath("//a[@id='ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LoginLink2']")).click();
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Account Sign In");
         driver.quit();
@@ -24,11 +19,6 @@ public class Stan {
 
     @Test
     void loginWithCorrectCredsTest() {  // Test case #TC-HD-002
-        WebDriver driver;
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://rifle.com/Login.aspx");
         driver.findElement(By.xpath("//input[@id='ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_UserName']")).sendKeys("georgians_forever@gmail.com");
         driver.findElement(By.xpath("//input[@id='ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_Password']")).sendKeys("Qwerty1");
@@ -39,11 +29,6 @@ public class Stan {
 
     @Test
     void loginWithIncorrectCredsTest() {  // Test case #TC-HD-003
-        WebDriver driver;
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://rifle.com/Login.aspx");
         driver.findElement(By.xpath("//input[@id='ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_UserName']")).sendKeys("georgians_forever@gmail");
         driver.findElement(By.xpath("//input[@id='ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_Password']")).sendKeys("Qwerty1");
@@ -54,11 +39,6 @@ public class Stan {
 
       @Test
     void loginWithEmptyUsernameTest() {  // Test case #TC-HD-004
-        WebDriver driver;
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://rifle.com/Login.aspx");
         driver.findElement(By.xpath("//input[@id='ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_Password']")).sendKeys("Qwerty1");
         driver.findElement(By.xpath("//input[@id='ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_LoginButton']")).click();
