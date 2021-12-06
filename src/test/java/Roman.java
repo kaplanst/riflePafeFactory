@@ -29,6 +29,9 @@ public class Roman {
 
         Assert.assertEquals(romabot.findElement(By.xpath("//*[@class='message']")).getText(), "Your cart is empty.");
 
+        romabot.quit();
+
+
     }
 
 }
