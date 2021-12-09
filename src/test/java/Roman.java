@@ -1,3 +1,4 @@
+import Utils.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -5,32 +6,34 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Roman {
+public class Roman extends BaseTest {
 
     @Test
-    void shoppingCartAddRemoveTest() throws InterruptedException { //TEST CASE TEST RAIL: C12
-        WebDriver romabot;
-        WebDriverManager.chromedriver().setup();
-        romabot = new ChromeDriver();
-        romabot.get("https://rifle.com/4-Wheel-Off-Road/Suzuki-Samurai/Suzuki-Samurai-Under-Seat-Storage-Tray.aspx");
-        romabot.manage().window().maximize();
+    void shoppingCartAddRemoveTest() throws InterruptedException { //TEST CASE TC-FT-008
+        driver.get("https://rifle.com/4-Wheel-Off-Road/Suzuki-Samurai/Suzuki-Samurai-Under-Seat-Storage-Tray.aspx");
+        driver.manage().window().maximize();
 
-        romabot.findElement(By.xpath("//*[@class='btn btn-default']")).click();
+        driver.findElement(By.xpath("//*[@class='btn btn-default']")).click();
 
-        romabot.findElement(By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageFooter_StoreFooterRifle_F_BasketLink']")).click();
+        driver.findElement(By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageFooter_StoreFooterRifle_F_BasketLink']")).click();
 
-        Assert.assertEquals(romabot.findElement(By.xpath("//*[@class='fieldHeader']")).getText(), "Subtotal:");
+        Assert.assertEquals(driver.findElement(By.xpath("//*[@class='fieldHeader']")).getText(), "Subtotal:");
 
-        romabot.findElement(By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageContent_ClearBasketButton']")).click();
+        driver.findElement(By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageContent_ClearBasketButton']")).click();
 
-        romabot.switchTo().alert().accept();
+        driver.switchTo().alert().accept();
 
         Thread.sleep(2000);
 
-        Assert.assertEquals(romabot.findElement(By.xpath("//*[@class='message']")).getText(), "Your cart is empty.");
+        Assert.assertEquals(driver.findElement(By.xpath("//*[@class='message']")).getText(), "Your cart is empty.");
 
-        romabot.quit();
+        driver.quit();
 
+    }
+
+    void shoppingCartMultipleQuantityEditTest(){
+
+        driver.get("https://rifle.com/4-Wheel-Off-Road/Suzuki-Samurai/Suzuki-Samurai-Under-Seat-Storage-Tray.aspx");
 
     }
 
