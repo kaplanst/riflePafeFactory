@@ -1,13 +1,17 @@
 import Utils.BaseTest;
+import model.MainPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Stan extends BaseTest {
+    MainPage mainPage;
 
     @Test
-    void loginLinkTest() {  // Test case #TC-HD-001
-        driver.findElement(By.xpath("//a[@id='ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LoginLink2']")).click();
+    public void loginLinkTest() {  // Test case #TC-HD-001
+        mainPage = new MainPage(driver);
+        mainPage.clickLoginButton();
+ //       driver.findElement(By.xpath("//a[@id='ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LoginLink2']")).click();
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Account Sign In");
     }
 
