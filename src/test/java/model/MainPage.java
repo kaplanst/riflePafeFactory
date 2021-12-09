@@ -23,16 +23,19 @@ public class MainPage {
         return new LoginPage(driver);
     }
 
-    public void clickAccountButton(){
+    public AccountPage clickAccountButton(){
         driver.findElement(accountButton).click();
+        return new AccountPage(driver);
     }
 
-    public void clickWishlistButton(){
+    public WishListPage clickWishlistButton(){
         driver.findElement(wishListButton).click();
+        return new WishListPage(driver);
     }
 
-    public void clickCartButton(){
+    public CartPage clickCartButton(){
         driver.findElement(cartButton).click();
+        return new CartPage(driver);
     }
 
 }

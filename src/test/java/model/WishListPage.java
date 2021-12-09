@@ -2,9 +2,8 @@ package model;
 
 import org.openqa.selenium.WebDriver;
 
-public class CartPage {
-
-    public CartPage(WebDriver driver) {
+public class WishListPage {
+    public WishListPage(WebDriver driver) {
         this.driver = driver;
     }
 
