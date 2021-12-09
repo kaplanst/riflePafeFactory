@@ -18,8 +18,9 @@ public class MainPage {
         this.driver = driver;
     }
 
-    public void clickLoginButton(){
+    public LoginPage clickLoginButton(){
         driver.findElement(loginButton).click();
+        return new LoginPage(driver);
     }
 
     public void clickAccountButton(){

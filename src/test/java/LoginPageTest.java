@@ -6,14 +6,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Stan extends BaseTest {
+public class LoginPageTest extends BaseTest {
     MainPage mainPage;
     LoginPage loginPage;
 
     @BeforeMethod
     void startTests(){
         mainPage = new MainPage(driver);
-        loginPage = new LoginPage(driver);
     }
 
     @Test
@@ -24,7 +23,7 @@ public class Stan extends BaseTest {
 
     @Test
     void loginWithCorrectCredsPOMTest() {  // Test case #TC-HD-002
-        mainPage.clickLoginButton();
+        loginPage = mainPage.clickLoginButton();
         loginPage.fillUsername("georgians_forever@gmail.com");
         loginPage.fillPassword("Qwerty1");
         loginPage.clickSigninButton();
@@ -33,7 +32,7 @@ public class Stan extends BaseTest {
 
     @Test
     void loginWithIncorrectCredsTest() {  // Test case #TC-HD-003
-        mainPage.clickLoginButton();
+        loginPage = mainPage.clickLoginButton();
         loginPage.fillUsername("georgians_forever@gmail");
         loginPage.fillPassword("Qwerty1");
         loginPage.clickSigninButton();
@@ -42,7 +41,7 @@ public class Stan extends BaseTest {
 
     @Test
     void loginWithEmptyUsernameTest() {  // Test case #TC-HD-004
-        mainPage.clickLoginButton();
+        loginPage = mainPage.clickLoginButton();
         loginPage.fillPassword("Qwerty1");
         loginPage.clickSigninButton();
         Assert.assertTrue(driver.findElement(By.xpath("//*[text()='You must provide a user name.']")).isDisplayed());
