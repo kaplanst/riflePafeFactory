@@ -8,9 +8,7 @@ public class LoginPage {
     WebDriver driver;
 
     By username = By.id("ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_UserName");
-
     By password = By.id("ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_Password");
-
     By signInButton = By.id("ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_LoginButton");
 
     public LoginPage(WebDriver driver) {
