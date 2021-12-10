@@ -2,6 +2,7 @@ import Utils.BaseTest;
 import model.LoginPage;
 import model.MainPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ public class LoginPageTest extends BaseTest {
 
     @BeforeMethod
     void startTests(){
-        mainPage = new MainPage(driver);
+        mainPage = PageFactory.initElements(driver, MainPage.class);
     }
 
     @Test

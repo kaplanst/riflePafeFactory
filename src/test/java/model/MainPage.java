@@ -4,38 +4,43 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
 
     public WebDriver driver;
 
-    By loginButton = By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LoginLink2']");
-    By accountButton = By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootAccountLink']");
-    By wishListButton = By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootWishlistLink']");
-    By cartButton = By.xpath("//*[@id='ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootBasketLink']");
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LoginLink2")
+    WebElement loginButton;
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootAccountLink")
+    WebElement accountButton;
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootWishlistLink")
+    WebElement wishListButton;
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootBasketLink")
+    WebElement cartButton;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public LoginPage clickLoginButton(){
-        driver.findElement(loginButton).click();
-        return new LoginPage(driver);
+        loginButton.click();
+        return PageFactory.initElements(driver, LoginPage.class);
     }
 
     public AccountPage clickAccountButton(){
-        driver.findElement(accountButton).click();
-        return new AccountPage(driver);
+        accountButton.click();
+        return PageFactory.initElements(driver, AccountPage.class);
     }
 
     public WishListPage clickWishlistButton(){
-        driver.findElement(wishListButton).click();
-        return new WishListPage(driver);
+        wishListButton.click();
+        return PageFactory.initElements(driver, WishListPage.class);
     }
 
     public CartPage clickCartButton(){
-        driver.findElement(cartButton).click();
-        return new CartPage(driver);
+        cartButton.click();
+        return PageFactory.initElements(driver, CartPage.class);
     }
 
 }
