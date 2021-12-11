@@ -1,9 +1,9 @@
 package model;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
@@ -30,5 +30,12 @@ public class LoginPage {
 
     public void clickSigninButton (){
         signInButton.click();
+    }
+
+    public MainPage accountLogin(String strUserName, String strPassword){
+        this.fillUsername(strUserName);
+        this.fillPassword(strPassword);
+        this.clickSigninButton();
+        return PageFactory.initElements(driver, MainPage.class);
     }
 }

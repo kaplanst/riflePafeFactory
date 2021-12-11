@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage {
 
     public WebDriver driver;
+    LoginPage loginPage;
 
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LoginLink2")
     WebElement loginButton;
