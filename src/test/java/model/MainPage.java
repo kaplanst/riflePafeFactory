@@ -1,6 +1,5 @@
 package model;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,8 +17,6 @@ public class MainPage {
     WebElement wishListButton;
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootBasketLink")
     WebElement cartButton;
-    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_StoreLogo1_LogoLink")
-    WebElement logo;
     @FindBy(xpath = "//div[@class='category-container']//a[@href='Motorcycle-Fairings/Rifle-Fairings.aspx']")
     WebElement fairingsLink;
 
@@ -41,9 +38,6 @@ public class MainPage {
     public CartPage clickCartButton(){
         cartButton.click();
         return PageFactory.initElements(driver, CartPage.class);
-    }
-    public void clickLogo(){
-        logo.click();
     }
     public void fairing(){
         fairingsLink.click();
