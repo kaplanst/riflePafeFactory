@@ -1,9 +1,22 @@
-public class Main {
-    public static void main(String[] args) {
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
-        System.out.print("Хуй! ");
-        System.out.print("Вам! ");
-        System.out.print("В нос!");
+import java.util.concurrent.TimeUnit;
+
+public class Main {
+
+    public static WebDriver driver;
+
+
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("https://rifle.com/");
+
 
     }
 }

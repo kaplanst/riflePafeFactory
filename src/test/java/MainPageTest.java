@@ -36,4 +36,11 @@ public class MainPageTest extends BaseTest {
         mainPage.clickWishlistButton();
         Assert.assertEquals(driver.getTitle(), "View Wishlist");
     }
+    @Test
+    public void cartButtonTest() {
+        loginPage = mainPage.clickLoginButton();
+        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+        mainPage.clickCartButton();
+        Assert.assertEquals(driver.getTitle(), "My Cart");
+    }
 }

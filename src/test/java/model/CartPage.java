@@ -16,10 +16,21 @@ public class CartPage {
     WebElement header;
 
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageContent_EmptyBasketMessage")
-    WebElement cartStatus;
+    WebElement cartEmptyStatus;
 
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageContent_KeepShoppingButton")
-    WebElement keepShopingButton;
+    WebElement keepShoppingButton;
 
+    public String getHeaderText(){
+        return header.getText();
+    }
+
+    public boolean emptyCartIndicator() {
+        return cartEmptyStatus.isDisplayed();
+    }
+
+    public void keepShoping(){
+        keepShoppingButton.click();
+    }
 
 }
