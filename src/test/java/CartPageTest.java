@@ -9,6 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class CartPageTest extends BaseTest {
     MainPage mainPage;
     LoginPage loginPage;
@@ -33,13 +35,13 @@ public class CartPageTest extends BaseTest {
     }
 
     @Test
-    void continueShoppingTest(){
-        driver.get("https://rifle.com/");
-        driver.findElement(By.xpath("//div[@class='category-container']//a[@href='Motorcycle-Fairings/Rifle-Fairings.aspx']")).click();
+    void continueShoppingTest() throws InterruptedException {
+        cartPage.goHomePage()
+                .fairing();
         String tempTitle = driver.getTitle();
-        mainPage.clickCartButton();
-        cartPage.keepShoping();
-        System.out.println(tempTitle);
-
+        mainPage.clickCartButton()
+                .keepShopping();
+        Thread.sleep(500);
+        Assert.assertEquals(tempTitle, driver.getTitle());
     }
 }

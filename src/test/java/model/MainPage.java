@@ -18,29 +18,35 @@ public class MainPage {
     WebElement wishListButton;
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootBasketLink")
     WebElement cartButton;
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_StoreLogo1_LogoLink")
+    WebElement logo;
+    @FindBy(xpath = "//div[@class='category-container']//a[@href='Motorcycle-Fairings/Rifle-Fairings.aspx']")
+    WebElement fairingsLink;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
-
     public LoginPage clickLoginButton(){
         loginButton.click();
         return PageFactory.initElements(driver, LoginPage.class);
     }
-
     public AccountPage clickAccountButton(){
         accountButton.click();
         return PageFactory.initElements(driver, AccountPage.class);
     }
-
     public WishListPage clickWishlistButton(){
         wishListButton.click();
         return PageFactory.initElements(driver, WishListPage.class);
     }
-
     public CartPage clickCartButton(){
         cartButton.click();
         return PageFactory.initElements(driver, CartPage.class);
+    }
+    public void clickLogo(){
+        logo.click();
+    }
+    public void fairing(){
+        fairingsLink.click();
     }
 
 }
