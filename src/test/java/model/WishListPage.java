@@ -8,4 +8,5 @@ public class WishListPage {
     }
 
     WebDriver driver;
+
 }

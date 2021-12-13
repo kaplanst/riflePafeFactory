@@ -1,9 +1,9 @@
 package model;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
@@ -20,15 +20,25 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public void fillUsername (String strUserName){
+    public LoginPage fillUsername (String strUserName){
         username.sendKeys(strUserName);
+        return this;
     }
 
-    public void fillPassword (String strPassword){
+    public LoginPage fillPassword (String strPassword){
         password.sendKeys(strPassword);
+        return this;
     }
 
-    public void clickSigninButton (){
+    public AccountPage clickSigninButton (){
         signInButton.click();
+        return PageFactory.initElements(driver, AccountPage.class);
+    }
+
+    public AccountPage accountLogin(String strUserName, String strPassword){
+        this.fillUsername(strUserName);
+        this.fillPassword(strPassword);
+        this.clickSigninButton();
+        return PageFactory.initElements(driver, AccountPage.class);
     }
 }

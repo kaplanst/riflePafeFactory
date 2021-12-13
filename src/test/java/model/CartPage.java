@@ -1,6 +1,9 @@
 package model;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
 
@@ -9,4 +12,28 @@ public class CartPage {
     }
 
     WebDriver driver;
+
+    @FindBy(xpath = "//h1")
+    WebElement header;
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageContent_EmptyBasketMessage")
+    WebElement cartEmptyStatus;
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageContent_KeepShoppingButton")
+    WebElement keepShoppingButton;
+    @FindBy(id = "ctl00_ctl00_PageHeader_StoreHeader_BootNavHomeLink")
+    WebElement homeLink;
+
+    public String getHeaderText(){
+        return header.getText();
+    }
+    public boolean emptyCartIndicator() {
+        return cartEmptyStatus.isDisplayed();
+    }
+    public void keepShopping(){
+        keepShoppingButton.click();
+    }
+    public MainPage goHomePage(){
+        homeLink.click();
+        return PageFactory.initElements(driver, MainPage.class);
+    }
+
 }

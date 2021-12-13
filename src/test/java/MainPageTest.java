@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 public class MainPageTest extends BaseTest {
 
     MainPage mainPage;
+    LoginPage loginPage;
 
     @BeforeMethod
     void startTests(){
@@ -24,7 +25,23 @@ public class MainPageTest extends BaseTest {
 
     @Test
     public void accountButtonTest() {
+        loginPage = mainPage.clickLoginButton();
+        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
         mainPage.clickAccountButton();
-        Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Account Sign In");
+        Assert.assertEquals(driver.getTitle(), "My Account");
+    }
+    @Test
+    public void wishListButtonTest() {
+        loginPage = mainPage.clickLoginButton();
+        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+        mainPage.clickWishlistButton();
+        Assert.assertEquals(driver.getTitle(), "View Wishlist");
+    }
+    @Test
+    public void cartButtonTest() {
+        loginPage = mainPage.clickLoginButton();
+        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+        mainPage.clickCartButton();
+        Assert.assertEquals(driver.getTitle(), "My Cart");
     }
 }
