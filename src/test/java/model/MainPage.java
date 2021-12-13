@@ -43,4 +43,8 @@ public class MainPage {
         fairingsLink.click();
     }
 
+    public String getTitle(){
+        return driver.getTitle();
+    }
+
 }
