@@ -1,5 +1,6 @@
 import Utils.BaseTest;
 import model.CartPage;
+import model.ItemPage;
 import model.LoginPage;
 import model.MainPage;
 import org.openqa.selenium.By;
@@ -15,6 +16,7 @@ public class CartPageTest extends BaseTest {
     MainPage mainPage;
     LoginPage loginPage;
     CartPage cartPage;
+    ItemPage itemPage;
 
     @BeforeMethod
     void startTests() {
@@ -44,4 +46,16 @@ public class CartPageTest extends BaseTest {
         Thread.sleep(500);
         Assert.assertEquals(tempTitle, driver.getTitle());
     }
+    @Test
+    void itemShoppingTest() throws InterruptedException {
+        itemPage = PageFactory.initElements(driver, ItemPage.class);
+        driver.get(ITEM_1);
+    //    Thread.sleep(3000);
+
+        itemPage.clickAddToCartButton();
+     //   Thread.sleep(3000);
+        mainPage.clickCartButton();
+
+    }
+
 }

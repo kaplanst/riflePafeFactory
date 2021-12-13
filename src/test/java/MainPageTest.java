@@ -22,6 +22,7 @@ public class MainPageTest extends BaseTest {
         mainPage.clickLoginButton();
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Account Sign In");
     }
+
     @Test
     public void accountButtonTest() {
         loginPage = mainPage.clickLoginButton();
