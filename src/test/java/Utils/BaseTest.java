@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
+    public String ITEM_1 = "https://rifle.com/Motorcycle-Windshields/Accessories/Air-Balance-Windshield-Vent-Kit.aspx?ItemId=369099";
 
     public WebDriver driver;
 

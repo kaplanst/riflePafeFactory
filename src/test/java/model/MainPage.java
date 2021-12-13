@@ -39,8 +39,9 @@ public class MainPage {
         cartButton.click();
         return PageFactory.initElements(driver, CartPage.class);
     }
-    public void fairing(){
+    public MainPage fairing(){
         fairingsLink.click();
+        return this;
     }
 
 }

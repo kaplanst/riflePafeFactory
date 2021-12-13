@@ -15,6 +15,8 @@ public class LoginPage {
     WebElement password;
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageContent_LoginDialog1_LoginButton")
     WebElement signInButton;
+    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LogoutLink2")
+    WebElement logOutButton;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -30,9 +32,9 @@ public class LoginPage {
         return this;
     }
 
-    public AccountPage clickSigninButton (){
+    public LoginPage clickSigninButton (){
         signInButton.click();
-        return PageFactory.initElements(driver, AccountPage.class);
+        return this;
     }
 
     public AccountPage accountLogin(String strUserName, String strPassword){
@@ -40,5 +42,9 @@ public class LoginPage {
         this.fillPassword(strPassword);
         this.clickSigninButton();
         return PageFactory.initElements(driver, AccountPage.class);
+    }
+
+    public String getLogOutText(){
+        return logOutButton.getText();
     }
 }
