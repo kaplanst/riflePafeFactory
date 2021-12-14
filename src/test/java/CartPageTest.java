@@ -24,6 +24,7 @@ public class CartPageTest extends BaseTest {
         loginPage = mainPage.clickLoginButton();
         loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
         cartPage = mainPage.clickCartButton();
+  //      cartPage.clearButton();
     }
 
     @Test
@@ -47,13 +48,10 @@ public class CartPageTest extends BaseTest {
         Assert.assertEquals(tempTitle, driver.getTitle());
     }
     @Test
-    void itemShoppingTest() throws InterruptedException {
+    void itemShoppingTest() {
         itemPage = PageFactory.initElements(driver, ItemPage.class);
         driver.get(ITEM_1);
-    //    Thread.sleep(3000);
-
         itemPage.clickAddToCartButton();
-     //   Thread.sleep(3000);
         mainPage.clickCartButton();
 
     }

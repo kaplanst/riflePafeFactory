@@ -21,6 +21,8 @@ public class CartPage {
     WebElement keepShoppingButton;
     @FindBy(id = "ctl00_ctl00_PageHeader_StoreHeader_BootNavHomeLink")
     WebElement homeLink;
+    @FindBy(xpath = "//input[@value='Clear Cart']")
+    WebElement clearCartButton;
 
     public String getHeaderText(){
         return header.getText();
@@ -34,6 +36,13 @@ public class CartPage {
     public MainPage goHomePage(){
         homeLink.click();
         return PageFactory.initElements(driver, MainPage.class);
+    }
+    public CartPage clearCart(){
+        clearCartButton.click();
+        return PageFactory.initElements(driver, CartPage.class);
+    }
+    public boolean clearButton(){
+        return clearCartButton.isDisplayed();
     }
 
 }
