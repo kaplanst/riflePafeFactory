@@ -24,7 +24,7 @@ public class CartPageTest extends BaseTest {
         loginPage = mainPage.clickLoginButton();
         loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
         cartPage = mainPage.clickCartButton();
-  //      cartPage.clearButton();
+        cartPage.clearCart();
     }
 
     @Test
@@ -48,11 +48,21 @@ public class CartPageTest extends BaseTest {
         Assert.assertEquals(tempTitle, driver.getTitle());
     }
     @Test
-    void itemShoppingTest() {
+    void itemAddToCartTest() {
+        itemPage = PageFactory.initElements(driver, ItemPage.class);
+        driver.get(ITEM_1);
+        String item = itemPage.getHeaderText();
+        itemPage.clickAddToCartButton();
+        mainPage.clickCartButton();
+        Assert.assertEquals(driver.findElement(By.xpath("//div[@class='itemDetail basketItemDetail']/a")).getText(), item);
+    }
+    @Test
+    void multiplyItemsInCartTest() {
         itemPage = PageFactory.initElements(driver, ItemPage.class);
         driver.get(ITEM_1);
         itemPage.clickAddToCartButton();
         mainPage.clickCartButton();
+        cartPage.changingItemQuantity(Integer.toString(ITEM_QUANTITY));
 
     }
 

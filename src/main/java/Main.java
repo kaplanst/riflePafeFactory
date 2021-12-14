@@ -9,7 +9,6 @@ public class Main {
 
     public static WebDriver driver;
 
-
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
