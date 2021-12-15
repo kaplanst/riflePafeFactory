@@ -48,7 +48,10 @@ public class CartPage {
         try {
             clearCartButton.click();
             driver.switchTo().alert().accept();
+            System.out.println("Cart contained some items");
+
         } catch (Exception e) {
+            System.out.println("Cart was empty");
         }
         return PageFactory.initElements(driver, CartPage.class);
     }
@@ -56,7 +59,12 @@ public class CartPage {
     public CartPage changingItemQuantity(String intQuant) {
         quantity.sendKeys(Keys.BACK_SPACE, intQuant, Keys.ENTER);
         return this;
-
-
+    }
+    public int getPrice(WebElement price){
+        String priceTotal = price.getText();
+        priceTotal = priceTotal.replace(".00 USD", "");
+        priceTotal = priceTotal.replace("$.", "");
+        priceTotal = priceTotal.replace(" ", "");
+        return Integer.valueOf(priceTotal);
     }
 }
