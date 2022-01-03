@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class LoginPageTest extends BaseTest {
     MainPage mainPage;
-    LoginPage loginPage;
+    LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     UtilsMethod utilsMethod;
 
     @BeforeMethod
@@ -54,6 +54,7 @@ public class LoginPageTest extends BaseTest {
     @Test
     void defaultLoginTest(){
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        loginPage = PageFactory.initElements(driver, LoginPage.class);
         utilsMethod.loginDefault();
         Assert.assertEquals(loginPage.getLogOutText(), "Logout");
     }

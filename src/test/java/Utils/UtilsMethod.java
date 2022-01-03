@@ -1,7 +1,6 @@
 package Utils;
 
 import model.MainPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,8 +18,8 @@ public class UtilsMethod extends BaseTest{
     public Properties properties;
     public MainPage mainPage;
 
-    public static final String LOGIN_PROP = "default.username";
-    public static final String PAS_PROP = "default.password";
+    public static final String LOGIN_PROP = "username";
+    public static final String PAS_PROP = "password";
     public static final String PROPERTY_PATH = System.getProperty("user.dir") + "\\src\\test\\resources\\local.properties";
 
 
