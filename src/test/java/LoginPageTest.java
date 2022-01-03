@@ -1,4 +1,5 @@
 import Utils.BaseTest;
+import Utils.UtilsMethod;
 import model.LoginPage;
 import model.MainPage;
 import org.openqa.selenium.By;
@@ -10,10 +11,12 @@ import org.testng.annotations.Test;
 public class LoginPageTest extends BaseTest {
     MainPage mainPage;
     LoginPage loginPage;
+    UtilsMethod utilsMethod;
 
     @BeforeMethod
     void startTests(){
         mainPage = PageFactory.initElements(driver, MainPage.class);
+
     }
 
     @Test
@@ -48,5 +51,10 @@ public class LoginPageTest extends BaseTest {
         Assert.assertTrue(driver.findElement(By.xpath("//*[text()='You must provide a user name.']")).isDisplayed());
     }
 
-
+    @Test
+    void defaultLoginTest(){
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.loginDefault();
+        Assert.assertEquals(loginPage.getLogOutText(), "Logout");
+    }
 }
