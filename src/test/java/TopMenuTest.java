@@ -42,7 +42,22 @@ public class TopMenuTest extends BaseTest {
 
     @Test
     void checkProductsDropDownTest() {
-        topMenu.checkProductsDropDown();
+        String item = "Honda Pacific Coast Windshield System";
+        topMenu.checkProductsDropDown("  Products")
+                .checkProductsDropDown("Motorcycle Replacement Windshields")
+                .checkProductsDropDown("Honda Replacement Windshields")
+                .clickItem(item);
+        Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), item);
+    }
+
+    @Test
+    void check_2_ProductsDropDownTest() {
+        String item = "Roadster Fairing Harley-Davidson";
+        topMenu.checkProductsDropDown("  Products")
+                .checkProductsDropDown("Fairings")
+                .checkProductsDropDown("Rifle Roadster Fairing")
+                .clickItem(item);
+        Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), item);
     }
 
 

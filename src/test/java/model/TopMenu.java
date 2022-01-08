@@ -1,5 +1,6 @@
 package model;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -36,10 +37,19 @@ public class TopMenu {
     public void clickContactRifleLink(){contactRifleLink.click();}
     public void clickAboutAsLink(){aboutAsLink.click();}
 
-    public void checkProductsDropDown(){
+    public void clickItem(String item) {
+        driver.findElement(By.xpath("//*[@id='cssmenu']//*[contains(text(),'" + item + "')]")).click();
+    }
+
+    public TopMenu checkProductsDropDown(String item){
         Actions actions = new Actions(driver);
-        actions.moveToElement(productsDropDown).build().perform();
+        actions.moveToElement(driver.findElement(By
+                    .xpath("//*[@id='cssmenu']//*[contains(text(),'" + item + "')]"))).build().perform();
+        return this;
     }
 
 
+
+//*[@id='cssmenu']//*[text()='SoloShield Universal Windshields']
+    //*[@id='cssmenu']//*[contains(text(),'  Products')]
 }
