@@ -19,7 +19,9 @@ public class TopMenuTest extends BaseTest {
 
     @Test
     void clickHomeLinkTest(){
+        topMenu.clickSearchByModelsLink();
         topMenu.clickHomeLink();
+        Assert.assertEquals(driver.findElement(By.xpath("//h3")).getText(), "Motorcycle Windshields and Fairings");
     }
 
     @Test
@@ -58,6 +60,39 @@ public class TopMenuTest extends BaseTest {
                 .checkProductsDropDown("Rifle Roadster Fairing")
                 .clickItem(item);
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), item);
+    }
+
+    @Test
+    void clickWindshieldSelectionGuideTest(){
+        topMenu.checkInfoDropDown()
+                .clickWindshieldSelectionGuide();
+        Assert.assertEquals(driver.findElement(By.xpath("//h3")).getText(), "How to Select a Windshield Size");
+    }
+
+    @Test
+    void clickOrderInfoTest(){
+        topMenu.checkInfoDropDown()
+                .clickOrderInfo();
+        Assert.assertEquals(driver.findElement(By.xpath("//h3")).getText(), "How To Order RIFLE Products");
+    }
+
+    @Test
+    void clickBecomeDealerTest(){
+        topMenu.checkInfoDropDown()
+                .clickBecomeDealer();
+        Assert.assertEquals(driver.findElement(By.xpath("//h3")).getText(), "Dealer Information Page");
+    }
+
+    @Test
+    void clickInquireAboutCustomManufacturingTest(){
+        String expectedTitle = "Rifle Job Shop Atascadero, CA 93422-Vacuum Forming, CNC Machining";
+        topMenu.checkInfoDropDown()
+                .clickInquireAboutCustomManufacturing();
+        for (String tab : driver.getWindowHandles()) {
+            driver.switchTo().window(tab);
+        }
+        System.out.println(driver.getTitle());
+        Assert.assertEquals(driver.getTitle(), expectedTitle);
     }
 
 

@@ -32,10 +32,30 @@ public class TopMenu {
     @FindBy(xpath = "//a[@href='/About-Us.aspx']")
     WebElement aboutAsLink;
 
+    @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Windshield Selection Guide')]")
+    WebElement windshieldSelectionGuide;
+
+    @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Order Info')]")
+    WebElement orderInfo;
+
+    @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Become a Dealer')]")
+    WebElement becomeDealer;
+
+    @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Inquire About Custom Manufacturing')]")
+    WebElement inquireAboutCustomManufacturing;
+
+
+
     public void clickHomeLink(){homeLink.click();}
     public void clickSearchByModelsLink(){searchByModelsLink.click();}
     public void clickContactRifleLink(){contactRifleLink.click();}
     public void clickAboutAsLink(){aboutAsLink.click();}
+    public void clickWindshieldSelectionGuide(){windshieldSelectionGuide.click();}
+    public void clickOrderInfo(){orderInfo.click();}
+    public void clickBecomeDealer(){becomeDealer.click();}
+    public void clickInquireAboutCustomManufacturing(){inquireAboutCustomManufacturing.click();}
+
+
 
     public void clickItem(String item) {
         driver.findElement(By.xpath("//*[@id='cssmenu']//*[contains(text(),'" + item + "')]")).click();
@@ -47,9 +67,9 @@ public class TopMenu {
                     .xpath("//*[@id='cssmenu']//*[contains(text(),'" + item + "')]"))).build().perform();
         return this;
     }
-
-
-
-//*[@id='cssmenu']//*[text()='SoloShield Universal Windshields']
-    //*[@id='cssmenu']//*[contains(text(),'  Products')]
+    public TopMenu checkInfoDropDown(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(infoDropDown).build().perform();
+        return this;
+    }
 }

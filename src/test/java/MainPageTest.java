@@ -1,6 +1,7 @@
 import Utils.BaseTest;
 import model.LoginPage;
 import model.MainPage;
+import model.TopMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -11,6 +12,7 @@ public class MainPageTest extends BaseTest {
 
     MainPage mainPage;
     LoginPage loginPage;
+    TopMenu topMenu;
 
     @BeforeMethod
     void startTests(){
@@ -44,4 +46,10 @@ public class MainPageTest extends BaseTest {
         mainPage.clickCartButton();
         Assert.assertEquals(driver.getTitle(), "My Cart");
     }
+    @Test
+    public void topMenuTest() {
+        topMenu = PageFactory.initElements(driver, TopMenu.class);
+//        Assert.assertTrue(topMenu.ho);
+    }
+
 }
