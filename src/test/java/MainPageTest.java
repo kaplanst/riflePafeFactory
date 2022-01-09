@@ -49,7 +49,20 @@ public class MainPageTest extends BaseTest {
     @Test
     public void topMenuTest() {
         topMenu = PageFactory.initElements(driver, TopMenu.class);
-//        Assert.assertTrue(topMenu.ho);
+        Assert.assertTrue(topMenu.homeLink.isDisplayed());
+        Assert.assertTrue(topMenu.searchByModelsLink.isDisplayed());
+        Assert.assertTrue(topMenu.contactRifleLink.isDisplayed());
+        Assert.assertTrue(topMenu.productsDropDown.isDisplayed());
+        Assert.assertTrue(topMenu.aboutAsLink.isDisplayed());
+
+        topMenu.checkInfoDropDown();
+        Assert.assertTrue(topMenu.windshieldSelectionGuide.isDisplayed());
+        Assert.assertTrue(topMenu.orderInfo.isDisplayed());
+        Assert.assertTrue(topMenu.becomeDealer.isDisplayed());
+        Assert.assertTrue(topMenu.inquireAboutCustomManufacturing.isDisplayed());
+
+        topMenu.checkProductsDropDown("  Products");
+        Assert.assertTrue(topMenu.justReleasedLink.isDisplayed());
     }
 
 }

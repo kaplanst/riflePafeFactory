@@ -63,6 +63,14 @@ public class TopMenuTest extends BaseTest {
     }
 
     @Test
+    void check_3_ProductsDropDownTest() {
+        String item = "Just Released";
+        topMenu.checkProductsDropDown("  Products")
+                .clickItem(item);
+        Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), item);
+    }
+
+    @Test
     void clickWindshieldSelectionGuideTest(){
         topMenu.checkInfoDropDown()
                 .clickWindshieldSelectionGuide();

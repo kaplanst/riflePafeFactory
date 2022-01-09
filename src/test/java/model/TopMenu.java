@@ -15,34 +15,37 @@ public class TopMenu {
     WebDriver driver;
 
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootNavHomeLink")
-    WebElement homeLink;
+    public WebElement homeLink;
 
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootNavSearchModelLink")
-    WebElement searchByModelsLink;
+    public WebElement searchByModelsLink;
 
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootNavContactLink")
-    WebElement contactRifleLink;
+    public WebElement contactRifleLink;
 
     @FindBy(xpath = "//*[@id='cssmenu']/ul/li[1]")
-    WebElement productsDropDown;
+    public WebElement productsDropDown;
 
     @FindBy(xpath = "//*[@id='cssmenu']/ul/li[2]")
-    WebElement infoDropDown;
+    public WebElement infoDropDown;
 
     @FindBy(xpath = "//a[@href='/About-Us.aspx']")
-    WebElement aboutAsLink;
+    public WebElement aboutAsLink;
 
     @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Windshield Selection Guide')]")
-    WebElement windshieldSelectionGuide;
+    public WebElement windshieldSelectionGuide;
 
     @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Order Info')]")
-    WebElement orderInfo;
+    public WebElement orderInfo;
 
     @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Become a Dealer')]")
-    WebElement becomeDealer;
+    public WebElement becomeDealer;
 
     @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Inquire About Custom Manufacturing')]")
-    WebElement inquireAboutCustomManufacturing;
+    public WebElement inquireAboutCustomManufacturing;
+
+    @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Just Released')]")
+    public WebElement justReleasedLink;
 
 
 
