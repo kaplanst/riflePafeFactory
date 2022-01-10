@@ -1,4 +1,5 @@
 import Utils.BaseTest;
+import Utils.UtilsMethod;
 import model.LoginPage;
 import model.MainPage;
 import model.TopMenu;
@@ -11,6 +12,7 @@ import org.testng.annotations.Test;
 public class TopMenuTest extends BaseTest {
 
     TopMenu topMenu;
+    UtilsMethod utilsMethod;
 
     @BeforeMethod
     void startTests() {
@@ -103,5 +105,10 @@ public class TopMenuTest extends BaseTest {
         Assert.assertEquals(driver.getTitle(), expectedTitle);
     }
 
+    @Test
+    void menuTest() {
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.topMenuFullTest();
+    }
 
 }

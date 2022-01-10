@@ -47,7 +47,11 @@ public class TopMenu {
     @FindBy(xpath = "//*[@id='cssmenu']//*[contains(text(),'Just Released')]")
     public WebElement justReleasedLink;
 
+    @FindBy(id = "ctl00_ctl00_PageHeader_StoreHeader_BootNavHomeLink")
+    public WebElement shortHomeLink;
 
+    @FindBy(id = "ctl00_ctl00_PageHeader_StoreHeader_BootNavContactLink")
+    public WebElement contactUsLink;
 
     public void clickHomeLink(){homeLink.click();}
     public void clickSearchByModelsLink(){searchByModelsLink.click();}
@@ -57,8 +61,6 @@ public class TopMenu {
     public void clickOrderInfo(){orderInfo.click();}
     public void clickBecomeDealer(){becomeDealer.click();}
     public void clickInquireAboutCustomManufacturing(){inquireAboutCustomManufacturing.click();}
-
-
 
     public void clickItem(String item) {
         driver.findElement(By.xpath("//*[@id='cssmenu']//*[contains(text(),'" + item + "')]")).click();

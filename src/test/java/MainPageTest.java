@@ -47,7 +47,7 @@ public class MainPageTest extends BaseTest {
         Assert.assertEquals(driver.getTitle(), "My Cart");
     }
     @Test
-    public void topMenuTest() {
+    public void topMenuFullTest() {
         topMenu = PageFactory.initElements(driver, TopMenu.class);
         Assert.assertTrue(topMenu.homeLink.isDisplayed());
         Assert.assertTrue(topMenu.searchByModelsLink.isDisplayed());
@@ -64,5 +64,10 @@ public class MainPageTest extends BaseTest {
         topMenu.checkProductsDropDown("  Products");
         Assert.assertTrue(topMenu.justReleasedLink.isDisplayed());
     }
+    @Test
+    public void topMenuShortTest() {
+        topMenu = PageFactory.initElements(driver, TopMenu.class);
+        Assert.assertTrue(topMenu.homeLink.isDisplayed());
 
+    }
 }

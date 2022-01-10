@@ -9,7 +9,7 @@ public class MainPage {
 
     public WebDriver driver;
 
-    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_LoginLink2")
+    @FindBy(xpath = "//li[@class='login']/a[contains(@href, 'Login.aspx')]")
     WebElement loginButton;
     @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootAccountLink")
     WebElement accountButton;

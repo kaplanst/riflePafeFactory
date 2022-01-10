@@ -1,4 +1,5 @@
 import Utils.BaseTest;
+import Utils.UtilsMethod;
 import model.LoginPage;
 import model.MainPage;
 import org.openqa.selenium.support.PageFactory;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 public class WishListPageTest extends BaseTest {
     MainPage mainPage;
     LoginPage loginPage;
+    UtilsMethod utilsMethod;
 
     @BeforeMethod
     void startTests() {
@@ -18,8 +20,22 @@ public class WishListPageTest extends BaseTest {
     @Test
     public void wishListButtonTest() {
         loginPage = mainPage.clickLoginButton();
-        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.loginDefault();
         mainPage.clickWishlistButton();
         Assert.assertEquals(driver.getTitle(), "View Wishlist");
     }
+
+    @Test
+    void menuTest() {
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        mainPage.clickWishlistButton();
+        utilsMethod.topMenuShortTest();
+        utilsMethod.loginDefault();
+        mainPage.clickWishlistButton();
+        utilsMethod.topMenuShortTest();
+    }
+
+
+
 }

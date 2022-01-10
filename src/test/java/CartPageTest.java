@@ -1,4 +1,5 @@
 import Utils.BaseTest;
+import Utils.UtilsMethod;
 import model.CartPage;
 import model.ItemPage;
 import model.LoginPage;
@@ -17,6 +18,7 @@ public class CartPageTest extends BaseTest {
     LoginPage loginPage;
     CartPage cartPage;
     ItemPage itemPage;
+    UtilsMethod utilsMethod;
 
     @BeforeMethod
     void startTests() {
@@ -63,7 +65,16 @@ public class CartPageTest extends BaseTest {
         itemPage.clickAddToCartButton();
         mainPage.clickCartButton();
         cartPage.changingItemQuantity(Integer.toString(ITEM_QUANTITY));
+    }
 
+    @Test
+    void menuTest() {
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        mainPage.clickCartButton();
+        utilsMethod.topMenuShortTest();
+        utilsMethod.loginDefault();
+        mainPage.clickCartButton();
+        utilsMethod.topMenuShortTest();
     }
 
 }
