@@ -29,6 +29,13 @@ public class CartPageTest extends BaseTest {
     }
 
     @Test
+    void cartPageHeaderTest(){
+        header.logoutButtonClick();
+        header.clickCartButton();
+        utilsMethod.headerTest();
+    }
+
+    @Test
     void headerTest(){
         Assert.assertEquals(cartPage.getHeaderText(), "My Shopping Cart");
     }

@@ -15,12 +15,17 @@ public class LoginPageTest extends BaseTest {
     Header header;
     LoginPage loginPage;
     UtilsMethod utilsMethod;
-    TopMenu topMenu;
 
     @BeforeMethod
     void startTests(){
         header = PageFactory.initElements(driver, Header.class);
+    }
 
+    @Test
+    void loginPageHeaderTest(){
+        header.clickLoginButton();
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.headerTest();
     }
 
     @Test

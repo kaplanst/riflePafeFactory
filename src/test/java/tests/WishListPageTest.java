@@ -2,16 +2,13 @@ package tests;
 
 import Utils.BaseTest;
 import Utils.UtilsMethod;
-import model.LoginPage;
 import model.menus.Header;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class WishListPageTest extends BaseTest {
     Header header;
-    LoginPage loginPage;
     UtilsMethod utilsMethod;
 
     @BeforeMethod
@@ -20,12 +17,10 @@ public class WishListPageTest extends BaseTest {
     }
 
     @Test
-    public void wishListButtonTest() {
-        loginPage = header.clickLoginButton();
-        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
-        utilsMethod.loginDefault();
+    void wishListHeaderTest(){
         header.clickWishlistButton();
-        Assert.assertEquals(driver.getTitle(), "View Wishlist");
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.headerTest();
     }
 
     @Test
@@ -37,7 +32,4 @@ public class WishListPageTest extends BaseTest {
         header.clickWishlistButton();
         utilsMethod.topMenuShortTest();
     }
-
-
-
 }

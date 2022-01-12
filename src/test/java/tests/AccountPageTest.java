@@ -12,8 +12,6 @@ import org.testng.annotations.Test;
 
 public class AccountPageTest extends BaseTest {
     Header header;
-    LoginPage loginPage;
-    TopMenu topMenu;
     UtilsMethod utilsMethod;
 
     @BeforeMethod
@@ -22,11 +20,10 @@ public class AccountPageTest extends BaseTest {
     }
 
     @Test
-    public void accountLinkTest() {
-        loginPage = header.clickLoginButton();
-        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+    void loginPageHeaderTest(){
         header.clickAccountButton();
-        Assert.assertEquals(driver.getTitle(), "My Account");
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.headerTest();
     }
 
     @Test

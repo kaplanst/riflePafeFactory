@@ -13,43 +13,52 @@ public class Header {
 
     public WebDriver driver;
 
+    @FindBy(xpath = "//img[contains(@src, 'logo.png')]")
+    public WebElement logoImage;
     @FindBy(xpath = "//li[@class='login']/a[contains(@href, 'Login.aspx')]")
-    WebElement loginButton;
-    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootAccountLink")
-    WebElement accountButton;
-    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootWishlistLink")
-    WebElement wishListButton;
-    @FindBy(id = "ctl00_ctl00_NestedMaster_PageHeader_StoreHeaderRifle_H_BootBasketLink")
-    WebElement cartButton;
+    public WebElement loginButton;
+    @FindBy(xpath = "//li[@class='login']//*[contains(@id, 'LogoutLink2')]")
+    public WebElement logoutButton;
+    @FindBy(xpath = "//a[contains(@id, 'BootAccountLink')]")
+    public WebElement accountButton;
+    @FindBy(xpath = "//a[contains(@id, 'BootWishlistLink')]")
+    public WebElement wishListButton;
+    @FindBy(xpath = "//a[contains(@id, 'BootBasketLink')]")
+    public WebElement cartButton;
     @FindBy(xpath = "//div[@class='category-container']//a[@href='Motorcycle-Fairings/Rifle-Fairings.aspx']")
-    WebElement fairingsLink;
+    public WebElement fairingsLink;
 
     public Header(WebDriver driver) {
         this.driver = driver;
     }
-    public LoginPage clickLoginButton(){
+
+    public LoginPage clickLoginButton() {
         loginButton.click();
         return PageFactory.initElements(driver, LoginPage.class);
     }
-    public AccountPage clickAccountButton(){
+
+    public AccountPage clickAccountButton() {
         accountButton.click();
         return PageFactory.initElements(driver, AccountPage.class);
     }
-    public WishListPage clickWishlistButton(){
+
+    public WishListPage clickWishlistButton() {
         wishListButton.click();
         return PageFactory.initElements(driver, WishListPage.class);
     }
-    public CartPage clickCartButton(){
+
+    public CartPage clickCartButton() {
         cartButton.click();
         return PageFactory.initElements(driver, CartPage.class);
     }
-    public Header fairing(){
-        fairingsLink.click();
-        return this;
+
+    public void logoutButtonClick() {
+        logoutButton.click();
     }
 
-    public String getTitle(){
-        return driver.getTitle();
+    public Header fairing() {
+        fairingsLink.click();
+        return this;
     }
 
 }

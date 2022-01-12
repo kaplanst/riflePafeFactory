@@ -1,6 +1,7 @@
 package tests.menuTests;
 
 import Utils.BaseTest;
+import Utils.UtilsMethod;
 import model.LoginPage;
 import model.menus.Header;
 import model.menus.TopMenu;
@@ -10,11 +11,12 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class HeaderTest extends BaseTest {
 
     Header header;
-    LoginPage loginPage;
-    TopMenu topMenu;
+    UtilsMethod utils;
 
     @BeforeMethod
     void startTests(){
@@ -26,50 +28,37 @@ public class HeaderTest extends BaseTest {
         header.clickLoginButton();
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Account Sign In");
     }
-
     @Test
-    public void accountButtonTest() {
-        loginPage = header.clickLoginButton();
-        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+    public void accountButtonTest() throws InterruptedException {
+        utils = PageFactory.initElements(driver, UtilsMethod.class);
+        utils.loginDefault();
+        Thread.sleep(500);
         header.clickAccountButton();
         Assert.assertEquals(driver.getTitle(), "My Account");
     }
     @Test
     public void wishListButtonTest() {
-        loginPage = header.clickLoginButton();
-        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+        utils = PageFactory.initElements(driver, UtilsMethod.class);
+        utils.loginDefault();
         header.clickWishlistButton();
         Assert.assertEquals(driver.getTitle(), "View Wishlist");
     }
     @Test
     public void cartButtonTest() {
-        loginPage = header.clickLoginButton();
-        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+        utils = PageFactory.initElements(driver, UtilsMethod.class);
+        utils.loginDefault();
         header.clickCartButton();
         Assert.assertEquals(driver.getTitle(), "My Cart");
     }
     @Test
-    public void topMenuFullTest() {
-        topMenu = PageFactory.initElements(driver, TopMenu.class);
-        Assert.assertTrue(topMenu.homeLink.isDisplayed());
-        Assert.assertTrue(topMenu.searchByModelsLink.isDisplayed());
-        Assert.assertTrue(topMenu.contactRifleLink.isDisplayed());
-        Assert.assertTrue(topMenu.productsDropDown.isDisplayed());
-        Assert.assertTrue(topMenu.aboutAsLink.isDisplayed());
-
-        topMenu.checkInfoDropDown();
-        Assert.assertTrue(topMenu.windshieldSelectionGuide.isDisplayed());
-        Assert.assertTrue(topMenu.orderInfo.isDisplayed());
-        Assert.assertTrue(topMenu.becomeDealer.isDisplayed());
-        Assert.assertTrue(topMenu.inquireAboutCustomManufacturing.isDisplayed());
-
-        topMenu.checkProductsDropDown("  Products");
-        Assert.assertTrue(topMenu.justReleasedLink.isDisplayed());
+    public void logoutButtonTest() {
+        utils = PageFactory.initElements(driver, UtilsMethod.class);
+        utils.loginDefault();
+        header.logoutButtonClick();
+        Assert.assertTrue(header.loginButton.isDisplayed());
     }
     @Test
-    public void topMenuShortTest() {
-        topMenu = PageFactory.initElements(driver, TopMenu.class);
-        Assert.assertTrue(topMenu.homeLink.isDisplayed());
-
+    public void logoTest() {
+        Assert.assertTrue(header.logoImage.isDisplayed());
     }
 }

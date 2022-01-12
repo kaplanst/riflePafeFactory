@@ -46,14 +46,15 @@ public class CartPage {
     }
 
     public CartPage clearCart() {
-        try {
-            clearCartButton.click();
-            driver.switchTo().alert().accept();
-            System.out.println("Cart contained some items");
+            try {
+                clearCartButton.click();
+                driver.switchTo().alert().accept();
+                System.out.println("Cart contained some items");
 
-        } catch (Exception e) {
-            System.out.println("Cart was empty");
-        }
+            } catch (Exception e) {
+                System.out.println("Cart was empty");
+            }
+
         return PageFactory.initElements(driver, CartPage.class);
     }
 

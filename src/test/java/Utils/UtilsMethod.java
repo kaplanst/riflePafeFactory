@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class UtilsMethod extends BaseTest{
 
@@ -56,6 +57,7 @@ public class UtilsMethod extends BaseTest{
                 .fillUsername(getUserName())
                 .fillPassword(getUserPassword())
                 .clickSigninButton();
+        waitForElement(driver, header.logoutButton);
     }
 
     public void topMenuShortTest() {
@@ -81,5 +83,20 @@ public class UtilsMethod extends BaseTest{
 
         topMenu.checkProductsDropDown("  Products");
         Assert.assertTrue(topMenu.justReleasedLink.isDisplayed());
+    }
+
+    public void headerTest(){
+        header = PageFactory.initElements(driver, Header.class);
+        Assert.assertTrue(header.logoImage.isDisplayed());
+        Assert.assertTrue(header.loginButton.isDisplayed());
+        Assert.assertTrue(header.accountButton.isDisplayed());
+        Assert.assertTrue(header.wishListButton.isDisplayed());
+        Assert.assertTrue(header.cartButton.isDisplayed());
+        loginDefault();
+        Assert.assertTrue(header.logoutButton.isDisplayed());
+        Assert.assertTrue(header.accountButton.isDisplayed());
+        Assert.assertTrue(header.wishListButton.isDisplayed());
+        Assert.assertTrue(header.cartButton.isDisplayed());
+        Assert.assertTrue(header.logoImage.isDisplayed());
     }
 }

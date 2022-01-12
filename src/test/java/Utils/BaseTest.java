@@ -2,7 +2,10 @@ package Utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -15,6 +18,11 @@ public class BaseTest {
 
     public WebDriver driver;
 
+    public void waitForElement(WebDriver driver, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     @BeforeMethod
     public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -22,7 +30,6 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://rifle.com/");
-
     }
 
     @AfterMethod
