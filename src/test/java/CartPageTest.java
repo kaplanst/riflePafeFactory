@@ -23,8 +23,8 @@ public class CartPageTest extends BaseTest {
     @BeforeMethod
     void startTests() {
         mainPage = PageFactory.initElements(driver, MainPage.class);
-        loginPage = mainPage.clickLoginButton();
-        loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
+        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.loginDefault();
         cartPage = mainPage.clickCartButton();
         cartPage.clearCart();
     }
@@ -69,10 +69,10 @@ public class CartPageTest extends BaseTest {
 
     @Test
     void menuTest() {
+        loginPage = PageFactory.initElements(driver, LoginPage.class);
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
-        mainPage.clickCartButton();
         utilsMethod.topMenuShortTest();
-        utilsMethod.loginDefault();
+        loginPage.logOutButton.click();
         mainPage.clickCartButton();
         utilsMethod.topMenuShortTest();
     }

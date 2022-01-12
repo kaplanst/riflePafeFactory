@@ -69,7 +69,7 @@ public class TopMenu {
     public TopMenu checkProductsDropDown(String item){
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By
-                    .xpath("//*[@id='cssmenu']//*[contains(text(),'" + item + "')]"))).build().perform();
+                .xpath("//*[@id='cssmenu']//*[contains(text(),'" + item + "')]"))).build().perform();
         return this;
     }
     public TopMenu checkInfoDropDown(){

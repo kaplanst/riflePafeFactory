@@ -66,7 +66,6 @@ public class UtilsMethod extends BaseTest{
         Assert.assertTrue(topMenu.contactUsLink.isDisplayed());
     }
 
-
     public void topMenuFullTest() {
         topMenu = PageFactory.initElements(driver, TopMenu.class);
         Assert.assertTrue(topMenu.homeLink.isDisplayed());
