@@ -1,5 +1,6 @@
 package model;
 
+import model.menus.Header;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,9 +40,9 @@ public class CartPage {
         keepShoppingButton.click();
     }
 
-    public MainPage goHomePage() {
+    public Header goHomePage() {
         homeLink.click();
-        return PageFactory.initElements(driver, MainPage.class);
+        return PageFactory.initElements(driver, Header.class);
     }
 
     public CartPage clearCart() {

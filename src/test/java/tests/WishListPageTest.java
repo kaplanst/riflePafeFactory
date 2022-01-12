@@ -1,38 +1,40 @@
+package tests;
+
 import Utils.BaseTest;
 import Utils.UtilsMethod;
 import model.LoginPage;
-import model.MainPage;
+import model.menus.Header;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class WishListPageTest extends BaseTest {
-    MainPage mainPage;
+    Header header;
     LoginPage loginPage;
     UtilsMethod utilsMethod;
 
     @BeforeMethod
     void startTests() {
-        mainPage = PageFactory.initElements(driver, MainPage.class);
+        header = PageFactory.initElements(driver, Header.class);
     }
 
     @Test
     public void wishListButtonTest() {
-        loginPage = mainPage.clickLoginButton();
+        loginPage = header.clickLoginButton();
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
         utilsMethod.loginDefault();
-        mainPage.clickWishlistButton();
+        header.clickWishlistButton();
         Assert.assertEquals(driver.getTitle(), "View Wishlist");
     }
 
     @Test
     void menuTest() {
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
-        mainPage.clickWishlistButton();
+        header.clickWishlistButton();
         utilsMethod.topMenuShortTest();
         utilsMethod.loginDefault();
-        mainPage.clickWishlistButton();
+        header.clickWishlistButton();
         utilsMethod.topMenuShortTest();
     }
 

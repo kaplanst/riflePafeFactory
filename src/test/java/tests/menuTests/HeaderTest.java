@@ -1,49 +1,51 @@
+package tests.menuTests;
+
 import Utils.BaseTest;
 import model.LoginPage;
-import model.MainPage;
-import model.TopMenu;
+import model.menus.Header;
+import model.menus.TopMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class MainPageTest extends BaseTest {
+public class HeaderTest extends BaseTest {
 
-    MainPage mainPage;
+    Header header;
     LoginPage loginPage;
     TopMenu topMenu;
 
     @BeforeMethod
     void startTests(){
-        mainPage = PageFactory.initElements(driver, MainPage.class);
+        header = PageFactory.initElements(driver, Header.class);
     }
 
     @Test
     public void loginButtonTest() {  // Test case #TC-HD-001
-        mainPage.clickLoginButton();
+        header.clickLoginButton();
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Account Sign In");
     }
 
     @Test
     public void accountButtonTest() {
-        loginPage = mainPage.clickLoginButton();
+        loginPage = header.clickLoginButton();
         loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
-        mainPage.clickAccountButton();
+        header.clickAccountButton();
         Assert.assertEquals(driver.getTitle(), "My Account");
     }
     @Test
     public void wishListButtonTest() {
-        loginPage = mainPage.clickLoginButton();
+        loginPage = header.clickLoginButton();
         loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
-        mainPage.clickWishlistButton();
+        header.clickWishlistButton();
         Assert.assertEquals(driver.getTitle(), "View Wishlist");
     }
     @Test
     public void cartButtonTest() {
-        loginPage = mainPage.clickLoginButton();
+        loginPage = header.clickLoginButton();
         loginPage.accountLogin("georgians_forever@gmail.com", "Qwerty1");
-        mainPage.clickCartButton();
+        header.clickCartButton();
         Assert.assertEquals(driver.getTitle(), "My Cart");
     }
     @Test

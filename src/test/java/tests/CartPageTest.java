@@ -1,20 +1,19 @@
+package tests;
+
 import Utils.BaseTest;
 import Utils.UtilsMethod;
 import model.CartPage;
 import model.ItemPage;
 import model.LoginPage;
-import model.MainPage;
+import model.menus.Header;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 public class CartPageTest extends BaseTest {
-    MainPage mainPage;
+    Header header;
     LoginPage loginPage;
     CartPage cartPage;
     ItemPage itemPage;
@@ -22,10 +21,10 @@ public class CartPageTest extends BaseTest {
 
     @BeforeMethod
     void startTests() {
-        mainPage = PageFactory.initElements(driver, MainPage.class);
+        header = PageFactory.initElements(driver, Header.class);
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
         utilsMethod.loginDefault();
-        cartPage = mainPage.clickCartButton();
+        cartPage = header.clickCartButton();
         cartPage.clearCart();
     }
 
@@ -44,7 +43,7 @@ public class CartPageTest extends BaseTest {
         cartPage.goHomePage()
                 .fairing();
         String tempTitle = driver.getTitle();
-        mainPage.clickCartButton()
+        header.clickCartButton()
                 .keepShopping();
         Thread.sleep(500);
         Assert.assertEquals(tempTitle, driver.getTitle());
@@ -55,7 +54,7 @@ public class CartPageTest extends BaseTest {
         driver.get(ITEM_1);
         String item = itemPage.getHeaderText();
         itemPage.clickAddToCartButton();
-        mainPage.clickCartButton();
+        header.clickCartButton();
         Assert.assertEquals(driver.findElement(By.xpath("//div[@class='itemDetail basketItemDetail']/a")).getText(), item);
     }
     @Test
@@ -63,7 +62,7 @@ public class CartPageTest extends BaseTest {
         itemPage = PageFactory.initElements(driver, ItemPage.class);
         driver.get(ITEM_1);
         itemPage.clickAddToCartButton();
-        mainPage.clickCartButton();
+        header.clickCartButton();
         cartPage.changingItemQuantity(Integer.toString(ITEM_QUANTITY));
     }
 
@@ -73,7 +72,7 @@ public class CartPageTest extends BaseTest {
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
         utilsMethod.topMenuShortTest();
         loginPage.logOutButton.click();
-        mainPage.clickCartButton();
+        header.clickCartButton();
         utilsMethod.topMenuShortTest();
     }
 

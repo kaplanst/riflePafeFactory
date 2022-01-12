@@ -1,8 +1,7 @@
 package Utils;
 
-import model.LoginPage;
-import model.MainPage;
-import model.TopMenu;
+import model.menus.Header;
+import model.menus.TopMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -19,7 +18,7 @@ public class UtilsMethod extends BaseTest{
     }
 
     public Properties properties;
-    public MainPage mainPage;
+    public Header header;
     public TopMenu topMenu;
 
     public static final String LOGIN_PROP = "username";
@@ -52,8 +51,8 @@ public class UtilsMethod extends BaseTest{
     }
 
     public void loginDefault(){
-        mainPage = PageFactory.initElements(driver, MainPage.class);
-        mainPage.clickLoginButton()
+        header = PageFactory.initElements(driver, Header.class);
+        header.clickLoginButton()
                 .fillUsername(getUserName())
                 .fillPassword(getUserPassword())
                 .clickSigninButton();

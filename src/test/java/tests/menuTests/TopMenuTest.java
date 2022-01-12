@@ -1,8 +1,8 @@
+package tests.menuTests;
+
 import Utils.BaseTest;
 import Utils.UtilsMethod;
-import model.LoginPage;
-import model.MainPage;
-import model.TopMenu;
+import model.menus.TopMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
