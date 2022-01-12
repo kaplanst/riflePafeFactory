@@ -27,7 +27,7 @@ public class AccountPageTest extends BaseTest {
     }
 
     @Test
-    void menuTest() {
+    void menuAccountPageTest() {
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
         header.clickAccountButton();
         utilsMethod.topMenuShortTest();

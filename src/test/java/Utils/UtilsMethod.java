@@ -92,11 +92,5 @@ public class UtilsMethod extends BaseTest{
         Assert.assertTrue(header.accountButton.isDisplayed());
         Assert.assertTrue(header.wishListButton.isDisplayed());
         Assert.assertTrue(header.cartButton.isDisplayed());
-        loginDefault();
-        Assert.assertTrue(header.logoutButton.isDisplayed());
-        Assert.assertTrue(header.accountButton.isDisplayed());
-        Assert.assertTrue(header.wishListButton.isDisplayed());
-        Assert.assertTrue(header.cartButton.isDisplayed());
-        Assert.assertTrue(header.logoImage.isDisplayed());
     }
 }

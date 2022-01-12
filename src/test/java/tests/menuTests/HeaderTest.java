@@ -19,7 +19,7 @@ public class HeaderTest extends BaseTest {
     UtilsMethod utils;
 
     @BeforeMethod
-    void startTests(){
+    void startTests() {
         header = PageFactory.initElements(driver, Header.class);
     }
 
@@ -28,14 +28,15 @@ public class HeaderTest extends BaseTest {
         header.clickLoginButton();
         Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "Account Sign In");
     }
+
     @Test
-    public void accountButtonTest() throws InterruptedException {
+    public void accountButtonTest() {
         utils = PageFactory.initElements(driver, UtilsMethod.class);
         utils.loginDefault();
-        Thread.sleep(500);
         header.clickAccountButton();
         Assert.assertEquals(driver.getTitle(), "My Account");
     }
+
     @Test
     public void wishListButtonTest() {
         utils = PageFactory.initElements(driver, UtilsMethod.class);
@@ -43,13 +44,13 @@ public class HeaderTest extends BaseTest {
         header.clickWishlistButton();
         Assert.assertEquals(driver.getTitle(), "View Wishlist");
     }
+
     @Test
     public void cartButtonTest() {
-        utils = PageFactory.initElements(driver, UtilsMethod.class);
-        utils.loginDefault();
         header.clickCartButton();
         Assert.assertEquals(driver.getTitle(), "My Cart");
     }
+
     @Test
     public void logoutButtonTest() {
         utils = PageFactory.initElements(driver, UtilsMethod.class);
@@ -57,6 +58,7 @@ public class HeaderTest extends BaseTest {
         header.logoutButtonClick();
         Assert.assertTrue(header.loginButton.isDisplayed());
     }
+
     @Test
     public void logoTest() {
         Assert.assertTrue(header.logoImage.isDisplayed());
