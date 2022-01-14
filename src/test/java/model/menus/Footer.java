@@ -13,15 +13,15 @@ public class Footer {
     }
 
     @FindBy (xpath = "//*[@id='footerMiddle']//*[contains(text(),'Main')]")
-    WebElement main;
+    public WebElement main;
     @FindBy (xpath = "//*[@id='footerMiddle']//*[contains(text(), 'Search By Make')]")
-    WebElement searchByMake;
+    public WebElement searchByMake;
     @FindBy (xpath = "//*[@id='footerMiddle']//*[contains(text(), 'Motorcycle Products')]")
-    WebElement motorcycleProducts;
+    public WebElement motorcycleProducts;
     @FindBy (xpath = "//*[@id='footerMiddle']//*[contains(text(),'4 Wheel Offroad')]")
-    WebElement forWheelOffroad;
+    public WebElement fourWheelOffroad;
     @FindBy (xpath = "//*[@id='footerMiddle']//*[contains(text(),'Online Store')]")
-    WebElement onlineStore;
+    public WebElement onlineStore;
     //*[contains(@id, 'PageFooter_StoreFooterRifle_F')]
 
 
