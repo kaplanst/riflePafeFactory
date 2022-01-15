@@ -1,15 +1,11 @@
-package tests.menuTests;
+package tests.menuTest;
 
 import Utils.BaseTest;
 import model.menus.Footer;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class FooterTest extends BaseTest {
 

@@ -1,4 +1,4 @@
-package tests.menuTests;
+package tests.menuTest;
 
 import Utils.BaseTest;
 import Utils.UtilsMethod;

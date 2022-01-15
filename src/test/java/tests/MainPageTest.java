@@ -1,24 +1,22 @@
 package tests;
 
 import Utils.BaseTest;
-import Utils.UtilsMethod;
 import model.MainPage;
 import model.menus.Footer;
 import model.menus.Header;
 import model.menus.TopMenu;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class MainPageTest extends BaseTest {
 
-//    MainPage mainPage;
-//
-//    @BeforeMethod
-//    void startTests() {
-//        mainPage = PageFactory.initElements(driver, MainPage.class);
-//    }
+    MainPage mainPage;
+
+    @BeforeMethod
+    void startTests() {
+        mainPage = PageFactory.initElements(driver, MainPage.class);
+    }
 
     @Test
     void mainPageHeaderTest(){

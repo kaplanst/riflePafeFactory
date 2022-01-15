@@ -1,17 +1,13 @@
-package tests.menuTests;
+package tests.menuTest;
 
 import Utils.BaseTest;
 import Utils.UtilsMethod;
-import model.LoginPage;
 import model.menus.Header;
-import model.menus.TopMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 public class HeaderTest extends BaseTest {
 
