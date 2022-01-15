@@ -2,14 +2,14 @@ package tests;
 
 import Utils.BaseTest;
 import Utils.UtilsMethod;
-import model.menus.Footer;
 import model.menus.Header;
 import model.menus.TopMenu;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class WishListPageTest extends BaseTest {
+public class WishListPageTests extends BaseTest {
+
     Header header;
     UtilsMethod utilsMethod;
 
@@ -38,8 +38,8 @@ public class WishListPageTest extends BaseTest {
     @Test
     void accountPageFootersTest (){
         header.clickWishlistButton();
-        Footer footer = PageFactory.initElements(driver, Footer.class);
-        footer.headerFootersTest();
+//        Footer footer = PageFactory.initElements(driver, Footer.class);
+//        footer.headerFootersTest();
     }
 
 }

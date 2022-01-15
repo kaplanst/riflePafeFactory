@@ -11,7 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginPageTest extends BaseTest {
+public class LoginPageTests extends BaseTest {
     Header header;
     LoginPage loginPage;
     UtilsMethod utilsMethod;

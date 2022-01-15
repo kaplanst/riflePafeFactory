@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class MainPageTest extends BaseTest {
+public class MainPageTests extends BaseTest {
 
     MainPage mainPage;
 
