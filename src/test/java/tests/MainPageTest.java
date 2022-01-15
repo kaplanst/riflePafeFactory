@@ -13,12 +13,12 @@ import org.testng.annotations.Test;
 
 public class MainPageTest extends BaseTest {
 
-    MainPage mainPage;
-
-    @BeforeMethod
-    void startTests() {
-        mainPage = PageFactory.initElements(driver, MainPage.class);
-    }
+//    MainPage mainPage;
+//
+//    @BeforeMethod
+//    void startTests() {
+//        mainPage = PageFactory.initElements(driver, MainPage.class);
+//    }
 
     @Test
     void mainPageHeaderTest(){
