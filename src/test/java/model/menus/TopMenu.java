@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class TopMenu {
     public TopMenu(WebDriver driver) {
@@ -76,4 +78,28 @@ public class TopMenu {
         actions.moveToElement(infoDropDown).build().perform();
         return this;
     }
+
+    public void topMenuShortTest() {
+        Assert.assertTrue(shortHomeLink.isDisplayed());
+        System.out.println("Test is going well");
+        Assert.assertTrue(contactUsLink.isDisplayed());
+    }
+
+    public void topMenuFullTest() {
+        Assert.assertTrue(homeLink.isDisplayed());
+        Assert.assertTrue(searchByModelsLink.isDisplayed());
+        Assert.assertTrue(contactRifleLink.isDisplayed());
+        Assert.assertTrue(productsDropDown.isDisplayed());
+        Assert.assertTrue(aboutAsLink.isDisplayed());
+
+        checkInfoDropDown();
+        Assert.assertTrue(windshieldSelectionGuide.isDisplayed());
+        Assert.assertTrue(orderInfo.isDisplayed());
+        Assert.assertTrue(becomeDealer.isDisplayed());
+        Assert.assertTrue(inquireAboutCustomManufacturing.isDisplayed());
+
+        checkProductsDropDown("  Products");
+        Assert.assertTrue(justReleasedLink.isDisplayed());
+    }
+
 }

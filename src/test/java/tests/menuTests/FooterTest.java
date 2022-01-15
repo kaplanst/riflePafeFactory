@@ -21,13 +21,7 @@ public class FooterTest extends BaseTest {
     }
 
     @Test
-    void headerFootersTest (){
-        List<WebElement> footerLinks = driver.findElements(By.xpath("//*[contains(@id, 'PageFooter_StoreFooterRifle_F')]"));
-        for (WebElement elem: footerLinks) {
-            System.out.print(elem.getText() + ", ");
-        }
-
-        Assert.assertTrue(footer.main.isDisplayed() && footer.searchByMake.isDisplayed()
-                    && footer.motorcycleProducts.isDisplayed() && footer.fourWheelOffroad.isDisplayed());
+    void footersTest (){
+        footer.headerFootersTest();
     }
 }

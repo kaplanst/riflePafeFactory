@@ -3,6 +3,7 @@ package tests;
 import Utils.BaseTest;
 import Utils.UtilsMethod;
 import model.LoginPage;
+import model.menus.Footer;
 import model.menus.Header;
 import model.menus.TopMenu;
 import org.openqa.selenium.support.PageFactory;
@@ -12,7 +13,6 @@ import org.testng.annotations.Test;
 
 public class AccountPageTest extends BaseTest {
     Header header;
-    UtilsMethod utilsMethod;
 
     @BeforeMethod
     void startTests(){
@@ -22,18 +22,25 @@ public class AccountPageTest extends BaseTest {
     @Test
     void loginPageHeaderTest(){
         header.clickAccountButton();
-        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
-        utilsMethod.headerTest();
+        header.headerTest();
     }
 
     @Test
     void menuAccountPageTest() {
-        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        TopMenu topMenu = PageFactory.initElements(driver, TopMenu.class);
+        UtilsMethod utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
         header.clickAccountButton();
-        utilsMethod.topMenuShortTest();
+        topMenu.topMenuShortTest();
         utilsMethod.loginDefault();
         header.clickAccountButton();
-        utilsMethod.topMenuShortTest();
+        topMenu.topMenuShortTest();
+    }
+
+    @Test
+    void accountPageFootersTest (){
+        header.clickAccountButton();
+        Footer footer = PageFactory.initElements(driver, Footer.class);
+        footer.headerFootersTest();
     }
 
 

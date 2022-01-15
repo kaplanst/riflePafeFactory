@@ -105,10 +105,4 @@ public class TopMenuTest extends BaseTest {
         Assert.assertEquals(driver.getTitle(), expectedTitle);
     }
 
-    @Test
-    void menuTest() {
-        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
-        utilsMethod.topMenuFullTest();
-    }
-
 }

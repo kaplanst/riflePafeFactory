@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class Header {
 
@@ -59,6 +60,14 @@ public class Header {
     public Header fairing() {
         fairingsLink.click();
         return this;
+    }
+
+    public void headerTest(){
+        Assert.assertTrue(logoImage.isDisplayed());
+        Assert.assertTrue(loginButton.isDisplayed());
+        Assert.assertTrue(accountButton.isDisplayed());
+        Assert.assertTrue(wishListButton.isDisplayed());
+        Assert.assertTrue(cartButton.isDisplayed());
     }
 
 }

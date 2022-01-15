@@ -2,7 +2,10 @@ package Utils;
 
 import model.menus.Header;
 import model.menus.TopMenu;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -60,37 +63,15 @@ public class UtilsMethod extends BaseTest{
         waitForElement(driver, header.logoutButton);
     }
 
-    public void topMenuShortTest() {
-        topMenu = PageFactory.initElements(driver, TopMenu.class);
-        Assert.assertTrue(topMenu.shortHomeLink.isDisplayed());
-        System.out.println("Test is going well");
-        Assert.assertTrue(topMenu.contactUsLink.isDisplayed());
+    public void scroll(WebDriver driver, WebElement element) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    public void topMenuFullTest() {
-        topMenu = PageFactory.initElements(driver, TopMenu.class);
-        Assert.assertTrue(topMenu.homeLink.isDisplayed());
-        Assert.assertTrue(topMenu.searchByModelsLink.isDisplayed());
-        Assert.assertTrue(topMenu.contactRifleLink.isDisplayed());
-        Assert.assertTrue(topMenu.productsDropDown.isDisplayed());
-        Assert.assertTrue(topMenu.aboutAsLink.isDisplayed());
-
-        topMenu.checkInfoDropDown();
-        Assert.assertTrue(topMenu.windshieldSelectionGuide.isDisplayed());
-        Assert.assertTrue(topMenu.orderInfo.isDisplayed());
-        Assert.assertTrue(topMenu.becomeDealer.isDisplayed());
-        Assert.assertTrue(topMenu.inquireAboutCustomManufacturing.isDisplayed());
-
-        topMenu.checkProductsDropDown("  Products");
-        Assert.assertTrue(topMenu.justReleasedLink.isDisplayed());
+    public void scrollClick(WebDriver driver, By by) {
+        WebElement element = driver.findElement(by);
+        scroll(driver, element);
+        element.click();
     }
 
-    public void headerTest(){
-        header = PageFactory.initElements(driver, Header.class);
-        Assert.assertTrue(header.logoImage.isDisplayed());
-        Assert.assertTrue(header.loginButton.isDisplayed());
-        Assert.assertTrue(header.accountButton.isDisplayed());
-        Assert.assertTrue(header.wishListButton.isDisplayed());
-        Assert.assertTrue(header.cartButton.isDisplayed());
-    }
 }

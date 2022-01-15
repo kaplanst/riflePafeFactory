@@ -24,8 +24,7 @@ public class LoginPageTest extends BaseTest {
     @Test
     void loginPageHeaderTest(){
         header.clickLoginButton();
-        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
-        utilsMethod.headerTest();
+        header.headerTest();
     }
 
     @Test
@@ -72,10 +71,11 @@ public class LoginPageTest extends BaseTest {
     @Test
     void menuTest() {
         utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        TopMenu topMenu = PageFactory.initElements(driver, TopMenu.class);
         header.clickLoginButton();
-        utilsMethod.topMenuShortTest();
+        topMenu.topMenuShortTest();
         utilsMethod.loginDefault();
-        utilsMethod.topMenuFullTest();
+        topMenu.topMenuFullTest();
     }
 
 }

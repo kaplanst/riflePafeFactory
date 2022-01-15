@@ -6,6 +6,7 @@ import model.CartPage;
 import model.ItemPage;
 import model.LoginPage;
 import model.menus.Header;
+import model.menus.TopMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -32,7 +33,7 @@ public class CartPageTest extends BaseTest {
     void cartPageHeaderTest(){
         header.logoutButtonClick();
         header.clickCartButton();
-        utilsMethod.headerTest();
+        header.headerTest();
     }
 
     @Test
@@ -76,11 +77,11 @@ public class CartPageTest extends BaseTest {
     @Test
     void menuTest() {
         loginPage = PageFactory.initElements(driver, LoginPage.class);
-        utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
-        utilsMethod.topMenuShortTest();
+        TopMenu topMenu = PageFactory.initElements(driver, TopMenu.class);
+        topMenu.topMenuShortTest();
         loginPage.logOutButton.click();
         header.clickCartButton();
-        utilsMethod.topMenuShortTest();
+        topMenu.topMenuShortTest();
     }
 
 }
