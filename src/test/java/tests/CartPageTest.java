@@ -5,6 +5,7 @@ import Utils.UtilsMethod;
 import model.CartPage;
 import model.ItemPage;
 import model.LoginPage;
+import model.menus.Footer;
 import model.menus.Header;
 import model.menus.TopMenu;
 import org.openqa.selenium.By;
@@ -83,5 +84,13 @@ public class CartPageTest extends BaseTest {
         header.clickCartButton();
         topMenu.topMenuShortTest();
     }
+
+    @Test
+    void cartPageFootersTest (){
+        header.clickCartButton();
+        Footer footer = PageFactory.initElements(driver, Footer.class);
+        footer.footerShortTest();
+    }
+
 
 }

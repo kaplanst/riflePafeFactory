@@ -23,7 +23,6 @@ public class UtilsMethod extends BaseTest{
 
     public Properties properties;
     public Header header;
-    public TopMenu topMenu;
 
     public static final String LOGIN_PROP = "username";
     public static final String PAS_PROP = "password";

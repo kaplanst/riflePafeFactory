@@ -39,6 +39,8 @@ public class Footer {
 
 
     public void footerViewTest(){
+        UtilsMethod utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.scroll(driver,main);
         List<WebElement> footerElements = driver.findElements(By.xpath("//ul//*[contains(@id,'PageFooter_StoreFooter')]"));
         for (int i = 0; i < footerElements.size(); i++) {
             Assert.assertTrue(footerElements.get(i).getText().equals(footerLinks[i]));
