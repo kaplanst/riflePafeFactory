@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class MainPageTests extends BaseTest {
+public class MainPageTest extends BaseTest {
 
     MainPage mainPage;
 
@@ -33,7 +33,7 @@ public class MainPageTests extends BaseTest {
     @Test
     void mainPageFootersTest (){
         Footer footer = PageFactory.initElements(driver, Footer.class);
-        footer.headerFootersTest();
+        footer.footerViewTest();
     }
 
 }

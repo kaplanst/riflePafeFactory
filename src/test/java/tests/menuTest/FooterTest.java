@@ -17,6 +17,6 @@ public class FooterTest extends BaseTest {
 
     @Test
     void footersTest (){
-        footer.headerFootersTest();
+        footer.footerViewTest();
     }
 }

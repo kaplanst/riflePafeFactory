@@ -13,7 +13,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CartPageTests extends BaseTest {
+public class CartPageTest extends BaseTest {
     Header header;
     LoginPage loginPage;
     CartPage cartPage;

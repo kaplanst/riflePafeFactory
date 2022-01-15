@@ -1,9 +1,11 @@
 package model.menus;
 
+import Utils.UtilsMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
@@ -32,8 +34,11 @@ public class Footer {
     public WebElement fourWheelOffRoad;
     @FindBy (xpath = "//*[@id='footerMiddle']//*[contains(text(),'Online Store')]")
     public WebElement onlineStore;
+    @FindBy (id = "ctl00_ctl00_PageFooter_StoreFooter_FooterLinksAjax")
+    public WebElement shortMenu;
 
-    public void headerFootersTest (){
+
+    public void footerViewTest(){
         List<WebElement> footerElements = driver.findElements(By.xpath("//ul//*[contains(@id,'PageFooter_StoreFooter')]"));
         for (int i = 0; i < footerElements.size(); i++) {
             Assert.assertTrue(footerElements.get(i).getText().equals(footerLinks[i]));
@@ -41,6 +46,12 @@ public class Footer {
         }
         Assert.assertTrue(main.isDisplayed() && searchByMake.isDisplayed() && onlineStore.isDisplayed()
                 && motorcycleProducts.isDisplayed() && fourWheelOffRoad.isDisplayed());
+    }
+
+    public void footerShortTest(){
+        UtilsMethod utilsMethod = PageFactory.initElements(driver, UtilsMethod.class);
+        utilsMethod.scroll(driver,shortMenu);
+        Assert.assertTrue(shortMenu.isDisplayed());
     }
 
 }

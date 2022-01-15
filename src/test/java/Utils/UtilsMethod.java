@@ -68,8 +68,7 @@ public class UtilsMethod extends BaseTest{
         executor.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    public void scrollClick(WebDriver driver, By by) {
-        WebElement element = driver.findElement(by);
+    public void scrollClick(WebDriver driver, WebElement element) {
         scroll(driver, element);
         element.click();
     }

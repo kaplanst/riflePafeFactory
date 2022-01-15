@@ -39,8 +39,8 @@ public class AccountPageTest extends BaseTest {
     @Test
     void accountPageFootersTest (){
         header.clickAccountButton();
-//        Footer footer = PageFactory.initElements(driver, Footer.class);
-//        footer.headerFootersTest();
+        Footer footer = PageFactory.initElements(driver, Footer.class);
+        footer.footerShortTest();
     }
 
 

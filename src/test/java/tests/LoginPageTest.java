@@ -3,6 +3,7 @@ package tests;
 import Utils.BaseTest;
 import Utils.UtilsMethod;
 import model.LoginPage;
+import model.menus.Footer;
 import model.menus.Header;
 import model.menus.TopMenu;
 import org.openqa.selenium.By;
@@ -11,7 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginPageTests extends BaseTest {
+public class LoginPageTest extends BaseTest {
     Header header;
     LoginPage loginPage;
     UtilsMethod utilsMethod;
@@ -76,6 +77,13 @@ public class LoginPageTests extends BaseTest {
         topMenu.topMenuShortTest();
         utilsMethod.loginDefault();
         topMenu.topMenuFullTest();
+    }
+
+    @Test
+    void loginPageFootersTest (){
+        header.clickLoginButton();
+        Footer footer = PageFactory.initElements(driver, Footer.class);
+        footer.footerShortTest();
     }
 
 }
