@@ -19,7 +19,7 @@ public class BaseTest {
     public WebDriver driver;
 
     public void waitForElement(WebDriver driver, WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

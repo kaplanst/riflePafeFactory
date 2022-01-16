@@ -56,4 +56,6 @@ public class Footer {
         Assert.assertTrue(shortMenu.isDisplayed());
     }
 
+
+
 }
