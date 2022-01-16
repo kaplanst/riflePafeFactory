@@ -20,6 +20,10 @@ public class Footer {
             "Classic L Windshields", "Classic SS Windshields", "Classic Lowers", "Other Products",
             "4 Wheel Off Road", "Cart", "Wishlist", "Account", "Login"};
 
+    public String[] motoProductsArray = {"Just Released", "SoloShield Universal Windshields",
+            "Motorcycle Replacement Windshields", "Fairings", "Classic Windshield", "Classic L Windshields",
+            "Classic SS Windshield", "Classic Lowers", "Other Products"};
+
     public Footer(WebDriver driver) {
         this.driver = driver;
     }
@@ -56,6 +60,4 @@ public class Footer {
         Assert.assertTrue(shortMenu.isDisplayed());
     }
 
-
-
-}
+ }

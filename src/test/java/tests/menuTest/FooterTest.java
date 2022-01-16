@@ -27,21 +27,11 @@ public class FooterTest extends BaseTest {
     }
 
     @Test
-    void motorcycleProductsTest() throws InterruptedException {
- //       UtilsMethod utilsMethod = PageFactory.initElements(driver,UtilsMethod.class);
-        List<WebElement> links = driver.findElements(By.xpath("//*[@class='row']/div[3]/ul/li/a"));
-        int i = 0;
-        while ( i < links.size()) {
-            Thread.sleep(10000);
-            links.get(i).click();
-//            Thread.sleep(20000);
-            System.out.println(links.get(i).getText());
-            i++;
- //           driver.navigate().back();
-  //          Assert.assertEquals(driver.findElement(By.xpath("//h1")),elem.getText());
+    void motorcycleProductsTest() {
+        for (int i = 0; i < footer.motoProductsArray.length; i++) {
+            String path = "//*[@class='row']/div[3]/ul/li[" + (i+1) + "]/a";
+            driver.findElement(By.xpath(path)).click();
+            Assert.assertEquals(driver.getTitle(), footer.motoProductsArray[i]);
         }
     }
-
-
-
 }
