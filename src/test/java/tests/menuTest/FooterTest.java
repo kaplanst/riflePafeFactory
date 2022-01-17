@@ -3,13 +3,10 @@ package tests.menuTest;
 import Utils.BaseTest;
 import model.menus.Footer;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class FooterTest extends BaseTest {
 
@@ -43,6 +40,23 @@ public class FooterTest extends BaseTest {
             System.out.println(driver.getTitle() + " ---- " + brand);
             Assert.assertTrue(driver.getTitle().contains(brand));
         }
+    }
+
+    @Test
+    void onlineStoreTest() {
+        for (int i = 0; i < 4; i++) {
+            String path = "//*[@class='row']/div[1]/ul/li[" + (i+1) + "]/a";
+            driver.findElement(By.xpath(path)).click();
+            System.out.println(driver.findElement(By.xpath("//h3")).getText() + " --- " + footer.onlineStoreArray[i]);
+            Assert.assertEquals(driver.findElement(By.xpath("//h3")).getText(),footer.onlineStoreArray[i]);
+            driver.navigate().back();
+        }
+    }
+
+    @Test
+    void fourWheelOffRoadLinkTest(){
+        footer.fourWheelOffRoadLinkClick();
+        Assert.assertEquals(driver.getTitle(), "Rifle 4 Wheel Off Road");
     }
 
 }

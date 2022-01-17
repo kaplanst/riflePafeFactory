@@ -24,6 +24,9 @@ public class Footer {
             "Motorcycle Replacement Windshields", "Fairings", "Classic Windshield", "Classic L Windshields",
             "Classic SS Windshield", "Classic Lowers", "Other Products"};
 
+    public String[] onlineStoreArray = { "Motorcycle Windshields and Fairings", "How to Select a Windshield Size",
+            "How To Order RIFLE Products", "Dealer Information Page" };
+
     public Footer(WebDriver driver) {
         this.driver = driver;
     }
@@ -40,6 +43,8 @@ public class Footer {
     public WebElement onlineStore;
     @FindBy (id = "ctl00_ctl00_PageFooter_StoreFooter_FooterLinksAjax")
     public WebElement shortMenu;
+    @FindBy (id = "ctl00_ctl00_NestedMaster_PageFooter_StoreFooterRifle_F_FourWheelLink")
+    public WebElement fourWheelOffRoadLink;
 
 
     public void footerViewTest(){
@@ -48,7 +53,7 @@ public class Footer {
         List<WebElement> footerElements = driver.findElements(By.xpath("//ul//*[contains(@id,'PageFooter_StoreFooter')]"));
         for (int i = 0; i < footerElements.size(); i++) {
             Assert.assertTrue(footerElements.get(i).getText().equals(footerLinks[i]));
-            System.out.println(footerElements.get(i).getText() + " ----" + footerLinks[i]);
+            System.out.println(footerElements.get(i).getText() + " ---- " + footerLinks[i]);
         }
         Assert.assertTrue(main.isDisplayed() && searchByMake.isDisplayed() && onlineStore.isDisplayed()
                 && motorcycleProducts.isDisplayed() && fourWheelOffRoad.isDisplayed());
@@ -59,4 +64,6 @@ public class Footer {
         utilsMethod.scroll(driver,shortMenu);
         Assert.assertTrue(shortMenu.isDisplayed());
     }
+
+    public void fourWheelOffRoadLinkClick() { fourWheelOffRoadLink.click(); }
 }
