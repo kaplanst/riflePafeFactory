@@ -59,5 +59,4 @@ public class Footer {
         utilsMethod.scroll(driver,shortMenu);
         Assert.assertTrue(shortMenu.isDisplayed());
     }
-
- }
+}

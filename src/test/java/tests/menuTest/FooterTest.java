@@ -1,7 +1,6 @@
 package tests.menuTest;
 
 import Utils.BaseTest;
-import Utils.UtilsMethod;
 import model.menus.Footer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -34,4 +33,16 @@ public class FooterTest extends BaseTest {
             Assert.assertEquals(driver.getTitle(), footer.motoProductsArray[i]);
         }
     }
+
+    @Test
+    void searchByMake() {
+        for (int i = 0; i < 12; i++) {
+            String brand =  driver.findElement(By.xpath("//div[@id='footerMiddle']//div[2]/ul/li[" + (i+1) + "]/a")).getText();
+            driver.findElement(By.xpath("//div[@id='footerMiddle']//div[2]/ul/li[" + (i+1) + "]/a")).click();
+            System.out.println(driver.getTitle() + brand);
+            if (brand.equals("Can-Am")) continue;
+            Assert.assertTrue(driver.getTitle().contains(brand));
+        }
+    }
+
 }
