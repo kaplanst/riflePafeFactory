@@ -39,8 +39,8 @@ public class FooterTest extends BaseTest {
         for (int i = 0; i < 12; i++) {
             String brand =  driver.findElement(By.xpath("//div[@id='footerMiddle']//div[2]/ul/li[" + (i+1) + "]/a")).getText();
             driver.findElement(By.xpath("//div[@id='footerMiddle']//div[2]/ul/li[" + (i+1) + "]/a")).click();
-            System.out.println(driver.getTitle() + brand);
-            if (brand.equals("Can-Am")) continue;
+            if (brand.equals("Can-Am")) brand = "Bombardier";
+            System.out.println(driver.getTitle() + " ---- " + brand);
             Assert.assertTrue(driver.getTitle().contains(brand));
         }
     }
