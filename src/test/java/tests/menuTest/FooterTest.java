@@ -32,7 +32,7 @@ public class FooterTest extends BaseTest {
     }
 
     @Test
-    void searchByMake() {
+    void searchByMakeTest() {
         for (int i = 0; i < 12; i++) {
             String brand =  driver.findElement(By.xpath("//div[@id='footerMiddle']//div[2]/ul/li[" + (i+1) + "]/a")).getText();
             driver.findElement(By.xpath("//div[@id='footerMiddle']//div[2]/ul/li[" + (i+1) + "]/a")).click();
@@ -59,4 +59,20 @@ public class FooterTest extends BaseTest {
         Assert.assertEquals(driver.getTitle(), "Rifle 4 Wheel Off Road");
     }
 
+    @Test
+    void customManufacturingLinkTest(){
+        footer.customManufacturingLinkClick();
+        for (String tab: driver.getWindowHandles()) {
+            driver.switchTo().window(tab);
+        }
+        Assert.assertEquals(driver.getTitle(), "Rifle Job Shop Atascadero, CA 93422-Vacuum Forming, CNC Machining");
+    }
+
+    @Test
+    void mineColumnTest() {
+        for (int i = 0; i < 6; i++) {
+            driver.findElement(By.xpath("//*[@id='footerMiddle']/div/div[1]/div[1]/ul/li[" + (i+1) + "]/a")).click();
+            Assert.assertEquals(driver.findElement(By.xpath("//h3")).getText(), footer.mainColumnArray[i]);
+        }
+    }
 }

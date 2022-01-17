@@ -27,6 +27,9 @@ public class Footer {
     public String[] onlineStoreArray = { "Motorcycle Windshields and Fairings", "How to Select a Windshield Size",
             "How To Order RIFLE Products", "Dealer Information Page" };
 
+    public String[] mainColumnArray = { "Motorcycle Windshields and Fairings", "How to Select a Windshield Size",
+            "How To Order RIFLE Products", "Dealer Information Page", "Contact RIFLE", "Message From The President"};
+
     public Footer(WebDriver driver) {
         this.driver = driver;
     }
@@ -45,6 +48,8 @@ public class Footer {
     public WebElement shortMenu;
     @FindBy (id = "ctl00_ctl00_NestedMaster_PageFooter_StoreFooterRifle_F_FourWheelLink")
     public WebElement fourWheelOffRoadLink;
+    @FindBy (id = "ctl00_ctl00_NestedMaster_PageFooter_StoreFooterRifle_F_JobShopLink")
+    public WebElement customManufacturingLink;
 
 
     public void footerViewTest(){
@@ -66,4 +71,5 @@ public class Footer {
     }
 
     public void fourWheelOffRoadLinkClick() { fourWheelOffRoadLink.click(); }
+    public void customManufacturingLinkClick() { customManufacturingLink.click(); }
 }
